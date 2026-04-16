@@ -1,16 +1,17 @@
 import {useState} from "react";
 
-const EditProfile = () => {
+interface Props {
+    close: () => void;
+}
+
+const EditProfile = ({close}: Props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
 
     const handleClickSave = () => {
         //TODO: Save
         alert('Profile changed successfully');
-    }
-    const handleClickClose = () => {
-        //TODO: Close
-        alert('Profile changed cancelled');
+        close();
     }
     const handleClickClear = () => {
         setFirstName('');
@@ -36,7 +37,7 @@ const EditProfile = () => {
                 />
             </label>
             <button onClick={handleClickSave}>Save and Close</button>
-            <button onClick={handleClickClose}>Close without saving</button>
+            <button onClick={close}>Close without saving</button>
             <button onClick={handleClickClear}>Clear</button>
         </>
     );
