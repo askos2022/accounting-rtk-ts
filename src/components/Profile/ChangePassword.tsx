@@ -10,9 +10,13 @@ const ChangePassword = ({close}: Props) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleClickSave = () => {
-        //TODO: Change password
-        alert('Password changed successfully');
-        close();
+        if (confirmPassword === newPassword) {
+            //TODO: Change password
+            alert('Password changed successfully');
+            close();
+        } else {
+            alert('Passwords do not match');
+        }
     }
     const handleClickClear = () => {
         setNewPassword('');
