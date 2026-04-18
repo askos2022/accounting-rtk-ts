@@ -2,9 +2,10 @@ import './App.css'
 import Guest from './components/Guest';
 import {Navigate, Route, Routes} from 'react-router';
 import Profile from "./components/Profile";
+import {useAppSelector} from "./app/hooks.ts";
 
 function App() {
-    const token = 'dhfgjj';
+    const token = useAppSelector(state => state.token)
 
     return (
         <Routes>
